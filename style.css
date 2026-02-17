@@ -17,6 +17,8 @@
 
     * {
       box-sizing: border-box;
+        overflow-x:hidden;
+        scrollbar-width:none;
     }
 
     html {
@@ -827,3 +829,4 @@ overflow-x: hidden;
       }
     }
   
+
