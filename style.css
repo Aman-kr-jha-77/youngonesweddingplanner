@@ -670,7 +670,7 @@ overflow-x: hidden;
 
     .floating-action {
       position: fixed;
-      right: 25px;
+      right: 26px;
       width: 58px;
       height: 58px;
       border-radius: 50%;
@@ -687,12 +687,12 @@ overflow-x: hidden;
     }
 
     .floating-call {
-      bottom: 100px;
+      bottom: 105px;
       background: rgb(0, 81, 255);
     }
 
     .floating-whatsapp {
-      bottom: 30px;
+      bottom: 35px;
       background: #25d366;
       animation-delay: 0.35s;
     }
@@ -828,6 +828,7 @@ overflow-x: hidden;
       }
     }
   
+
 
 
 
