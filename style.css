@@ -297,11 +297,11 @@ overflow-x: hidden;
     }
 
     .cateringImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipOxL5TLo1dVBW-EIb9LLBI0o4wEagei2QqyMsBY=s3072-v1") center/cover no-repeat;
+      background: url(assets/catering.jpg) center/cover no-repeat;
     }
 
     .budgetImg {
-      background: url("https://www.cppr.in/wp-content/uploads/2022/11/Budget.jpg") center/cover no-repeat;
+      background: url(assets/budget.jpg) center/cover no-repeat;
     }
 
     .consultationImg {
@@ -309,7 +309,7 @@ overflow-x: hidden;
     }
 
     .decorImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipOhWY2Nr95Rn6PQX36Mi9GtGAW8x0DhRgDd3hri=s354-k-no") center/cover no-repeat;
+      background: url(assets/decore.jpg) center/cover no-repeat;
     }
 
     .hospitalityImg {
@@ -317,7 +317,7 @@ overflow-x: hidden;
     }
 
     .haldiImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipPhOujeLDCTs9noFBBd8dyrigUKpFmW7w17G72z=s387-k-no") center/cover no-repeat;
+      background: url(assets/haldi.webp) center/cover no-repeat;
     }
 
     .sangeetImg {
@@ -330,7 +330,7 @@ overflow-x: hidden;
     }
 
     .birthdayImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipMq5CWcUxCbibm6AmIqf3ZrQq34cx_xi1oesKwe=s1028-k-no") center/cover no-repeat;
+      background: url(assets/birthday.jpg) center/cover no-repeat;
     }
 
     .engagementImg {
@@ -338,19 +338,19 @@ overflow-x: hidden;
     }
 
     .corporateImg {
-      background: url("https://www.oyorooms.com/blog/wp-content/uploads/2018/03/fe-30.jpg") center/cover no-repeat;
+      background: url(assets/corporate.png) center/cover no-repeat;
     }
 
     .desWeddingImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipNi5-Jq4LId42iZ4bT8AZPJB0co9Iw_nr1VowHb=s812-k-no") center/cover no-repeat;
+      background: url(assets/destination.webp) center/cover no-repeat;
     }
 
     .mehdiImg {
-      background: url("https://lh3.googleusercontent.com/p/AF1QipN65RZN9mouTb81HwUUuogItIFdTevES9G1PglP=s1016-k-no") center/cover no-repeat;
+      background: url(assets/menhi.jpg) center/cover no-repeat;
     }
 
     .weddingImg {
-      background: url(assets/Gemini_Generated_Image_nthssnthssnthssn\ copy.png)center/cover no-repeat;}
+      background: url(assets/banner.png)center/cover no-repeat;}
     .photoImg {
       background: url(assets/image.png)center/cover no-repeat;  }
 
