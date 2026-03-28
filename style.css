@@ -377,10 +377,13 @@ overflow-x: hidden;
 
     .service-card:hover .overlay {
       background: rgba(0, 0, 0, 0.6);
+         background-size: 110%;
     }
 
     .service-card:hover .content {
-     transform: scale(1.05); }
+      transform: translateY(0);
+        
+    }
     
 
     .service-card:hover p {
