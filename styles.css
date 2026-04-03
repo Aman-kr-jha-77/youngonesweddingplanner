@@ -229,9 +229,7 @@ h2.section-title em { font-style: italic; color: var(--coral); }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('banner.png') center/cover no-repeat;
-  background-position: left;
-  background-size:contain;
+  background: url('banner.png') left/contain no-repeat;
   transform: scale(1.2);
   animation: heroZoom 14s ease-in-out infinite alternate;
 }
