@@ -45,6 +45,71 @@ window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+// trust section
+let started = false;
+
+function animateCounter(el, target, suffix = "") {
+  let current = 0;
+  const duration = 5000; // total animation time
+  const increment = target / (duration / 16); // 60fps approx
+
+  function update() {
+    current += increment;
+    if (current >= target) {
+      el.textContent = target + suffix;
+    } else {
+      el.textContent = Math.floor(current) + suffix;
+      requestAnimationFrame(update);
+    }
+  }
+
+  update();
+}
+
+function startCounters() {
+  const counters = document.querySelectorAll(".trust-num");
+
+  counters.forEach((counter) => {
+    let text = counter.textContent.trim();
+
+    let suffix = "";
+    let number = text;
+
+    // detect suffix
+    if (text.includes("+")) {
+      suffix = "+";
+      number = text.replace("+", "");
+    } else if (text.includes("%")) {
+      suffix = "%";
+      number = text.replace("%", "");
+    }
+
+    animateCounter(counter, parseInt(number), suffix);
+  });
+}
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50 && !started) {
+    started = true;
+    startCounters();
+  }
+});
+
+// float btn
+const phoneBtn = document.querySelector(".float-call");
+
+function triggerVibration() {
+  phoneBtn.classList.add("vibrate");
+
+  // remove class after animation ends so it can re-trigger
+  setTimeout(() => {
+    phoneBtn.classList.remove("vibrate");
+  }, 800);
+}
+
+// run every 8 seconds
+setInterval(triggerVibration, 4000);
+
 // ─── Gallery Filter
 function filterGallery(btn, cat) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
