@@ -565,6 +565,23 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 72p
 .float-wa { background: #25D366; }
 .float-call { background: var(--coral); }
 .float-btn svg { width: 22px; height: 22px; fill: #fff; stroke: none; }
+@keyframes rotateVibrate {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-8deg);}
+  30% { transform: rotate(8deg);}
+  40% { transform: rotate(-8deg); }
+  50% { transform: rotate(6deg); }
+  60% { transform: rotate(-6deg); }
+  70% { transform: rotate(6deg); }
+  80% { transform: rotate(-4deg); }
+  90% { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); scale: 1.2;}
+}
+
+.vibrate {
+  animation: rotateVibrate 0.8s ease-in-out;
+  transform-origin: center;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
