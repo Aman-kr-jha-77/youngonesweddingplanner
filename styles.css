@@ -229,14 +229,14 @@ h2.section-title em { font-style: italic; color: var(--coral); }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('banner.png') left/contain no-repeat;
-  transform: scale(1.2);
+  background: url('banner.png') center/cover no-repeat;
+  transform: scale(1.06);
   animation: heroZoom 14s ease-in-out infinite alternate;
 }
 @keyframes heroZoom { from { transform: scale(1.06); } to { transform: scale(1.0); } }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(44,35,32,1) 0%,transparent 100%);
+  background: linear-gradient(90deg, rgba(44,35,32,0.95) 0%,transparent 65%);
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -579,11 +579,10 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 72p
 @media (max-width: 768px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .hamburger { display: flex; 
+  .hamburger { display: flex; }
   .nav-links.mobile-open { display: flex; flex-direction: column; position: fixed; top: 76px; left: 0; right: 0; background: var(--warm-white); padding: 24px; border-bottom: 1px solid var(--border); gap: 4px; box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
   .section, .section-sm { padding: 56px 24px; }
   .hero-content { padding: 0 24px; }
-  .hero-bg{background-size:cover}
   .hero h1 { font-size: clamp(38px, 10vw, 56px); }
   .about-split, .about-story, .contact-grid { grid-template-columns: 1fr; }
   .services-grid, .why-grid { grid-template-columns: 1fr; }
