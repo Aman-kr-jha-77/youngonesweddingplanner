@@ -1,287 +1,116 @@
+// ─── Custom Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
 
-    gsap.registerPlugin(ScrollTrigger);
+document.addEventListener('mousemove', e => {
+  mx = e.clientX;
+  my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
 
-    gsap.set(".hero-content h1, .hero-content p, .hero-cta-group", { opacity: 0, y: 30 });
-    gsap.to(".hero-content h1", { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" });
-    gsap.to(".hero-content p", { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power2.out" });
-    gsap.to(".hero-cta-group", { opacity: 1, y: 0, duration: 1, delay: 0.7, ease: "power2.out" });
+(function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
 
-    gsap.utils.toArray(".section-label").forEach((label) => {
-      gsap.from(label, {
-        scrollTrigger: {
-          trigger: label,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        x: -20,
-        duration: 0.6,
-        ease: "power2.out"
-      });
+// ─── Page Navigation
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === name);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Close mobile menu
+  document.getElementById('navLinks').classList.remove('mobile-open');
+  document.getElementById('hamburger').classList.remove('open');
+  return false;
+}
+
+// ─── Mobile Menu
+function toggleMobileMenu() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('mobile-open');
+  btn.classList.toggle('open');
+}
+
+// ─── Sticky Nav Shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ─── Gallery Filter
+function filterGallery(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#galleryGrid .gi').forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.style.display = show ? 'block' : 'none';
+  });
+}
+
+// ─── Contact Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type=submit]');
+  const originalBtnHtml = btn.innerHTML;
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  // 1. Send the Admin Notification (To You)
+  const sendToAdmin = emailjs.sendForm('submittedToAman', 'template_mbyfmsp', form);
+
+  // 2. Send the Auto-Reply (To Customer)
+  const sendToCustomer = emailjs.sendForm('submittedToAman', 'template_1c2ivo7', form);
+
+  // Wait for both to finish
+  Promise.all([sendToAdmin, sendToCustomer])
+    .then(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.textContent = '✓ Sent!';
+      form.reset();
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnHtml;
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 4000);
+    })
+    .catch((error) => {
+      alert("Something went wrong. Please check your connection.");
+      btn.disabled = false;
+      btn.innerHTML = originalBtnHtml;
+      console.error("Error:", error);
     });
+}
 
-    gsap.utils.toArray("h2").forEach((heading) => {
-      gsap.from(heading, {
-        scrollTrigger: {
-          trigger: heading,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: "power2.out"
-      });
-    });
-
-    gsap.utils.toArray(".split > div").forEach((item, index) => {
-      gsap.from(item, {
-        scrollTrigger: {
-          trigger: item,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        x: index % 2 === 0 ? -40 : 40,
-        duration: 0.9,
-        ease: "power2.out"
-      });
-    });
-
-    gsap.utils.toArray(".service-card").forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        delay: index * 0.08,
-        ease: "power2.out"
-      });
-    });
-
-    gsap.utils.toArray(".why-card").forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: "back.out(1.3)"
-      });
-    });
-
-    gsap.from(".metric-card", {
-      scrollTrigger: {
-        trigger: ".experience-grid",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: "power2.out"
-    });
-
-    gsap.utils.toArray(".gallery-grid img").forEach((img, index) => {
-      gsap.from(img, {
-        scrollTrigger: {
-          trigger: img,
-          start: "top 90%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        scale: 0.85,
-        duration: 0.7,
-        delay: index * 0.06,
-        ease: "power2.out"
-      });
-    });
-
-    gsap.utils.toArray(".testimonial-card").forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        delay: index * 0.15,
-        ease: "power2.out"
-      });
-    });
-
-    // gsap.from(".message-title", {
-    //   scrollTrigger: {
-    //     trigger: ".message-title",
-    //     start: "top 80%",
-    //     toggleActions: "play none none none"
-    //   },
-    //   opacity: 0,
-    //   y: 30,
-    //   duration: 1,
-    //   ease: "power2.out"
-    // });
-
-    // gsap.from(".message-subtitle", {
-    //   scrollTrigger: {
-    //     trigger: ".message-subtitle",
-    //     start: "top 85%",
-    //     toggleActions: "play none none none"
-    //   },
-    //   opacity: 0,
-    //   y: 25,
-    //   duration: 1,
-    //   delay: 0.2,
-    //   ease: "power2.out"
-    // });
-
-    // gsap.from(".cta-content h2", {
-    //   scrollTrigger: {
-    //     trigger: ".cta-content",
-    //     start: "top 80%",
-    //     toggleActions: "play none none none",
-        
-    //   },
-    //   opacity:1,
-    //   scale: 0.9,
-    //   duration: 0.9,
-    //   ease: "back.out(1.5)"
-    // });
-
-    // gsap.from(".cta-buttons .btn", {
-    //   scrollTrigger: {
-    //     trigger: ".cta-buttons",
-    //     start: "top 85%",
-    //     toggleActions: "play none none none"
-    //   },
-    //   opacity: 0,
-    //   y: 20,
-    //   stagger: 0.15,
-    //   duration: 0.7,
-    //   ease: "power2.out"
-    // });
-
-    // gsap.from(".social-icons a", {
-    //   scrollTrigger: {
-    //     trigger: ".social-icons",
-    //     start: "top 90%",
-    //     toggleActions: "play none none none"
-    //   },
-    //   opacity: 0,
-    //   scale: 0,
-    //   stagger: 0.1,
-    //   duration: 0.5,
-    //   ease: "back.out(1.7)"
-    // });
-
-    // gsap.set(".floating-action", { scale: 0, opacity: 0 });
-    // gsap.to(".floating-call", { scale: 1, opacity: 1, duration: 0.6, delay: 1.5, ease: "back.out(1.7)" });
-    // gsap.to(".floating-whatsapp", { scale: 1, opacity: 1, duration: 0.6, delay: 1.7, ease: "back.out(1.7)" });
-
-    const menuToggle = document.querySelector(".menu-toggle");
-    const primaryNav = document.querySelector(".primary-nav");
-
-    if (menuToggle && primaryNav) {
-      const closeMenu = () => {
-        primaryNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-      };
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = primaryNav.classList.toggle("open");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Close navigation menu" : "Open navigation menu"
-        );
-      });
-
-      primaryNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          closeMenu();
-        });
-      });
-
-      document.addEventListener("click", (event) => {
-        if (!primaryNav.classList.contains("open")) return;
-        if (primaryNav.contains(event.target) || menuToggle.contains(event.target)) return;
-        closeMenu();
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && primaryNav.classList.contains("open")) {
-          closeMenu();
-          menuToggle.focus();
-        }
-      });
-
-      const mobileQuery = window.matchMedia("(max-width: 680px)");
-      const handleViewportChange = (query) => {
-        if (!query.matches) closeMenu();
-      };
-      handleViewportChange(mobileQuery);
-      mobileQuery.addEventListener("change", handleViewportChange);
+// ─── Intersection Observer Animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
     }
+  });
+}, { threshold: 0.1 });
 
+document.querySelectorAll('.why-card, .tcard, .service-card, .value-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
 
-    const backdropImages = document.querySelectorAll(".backIM img, .message-backdrop img");
-    if (backdropImages.length) {
-      const toggleBackdropImages = () => {
-        const showImages = window.scrollY > 100;
-        backdropImages.forEach((img) => {
-          img.style.display = showImages ? "block" : "none";
-        });
-      };
-
-      toggleBackdropImages();
-      window.addEventListener("scroll", toggleBackdropImages, { passive: true });
-    }
-    const metricCounters = document.querySelectorAll(".metric-counter");
-    if (metricCounters.length) {
-      const runCounter = (counter) => {
-        const target = Number(counter.dataset.target || 0);
-        const suffix = counter.dataset.suffix || "";
-        const duration = 1200;
-        const startTime = performance.now();
-
-        const tick = (now) => {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const value = Math.floor(progress * target);
-          counter.textContent = `${value}${suffix}`;
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-
-        requestAnimationFrame(tick);
-      };
-
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const counter = entry.target;
-              if (!counter.dataset.animated) {
-                counter.dataset.animated = "true";
-                runCounter(counter);
-              }
-              obs.unobserve(counter);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      metricCounters.forEach((counter) => observer.observe(counter));
-    }
-  
+// ─── EmailJS Init
+// Replace 'YOUR_PUBLIC_KEY' with the key from your EmailJS Account
+(function () {
+  emailjs.init("JkdoddudhHoOVa9rX");
+})();
