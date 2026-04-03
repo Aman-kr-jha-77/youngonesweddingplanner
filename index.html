@@ -1,527 +1,876 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Wedding management company home page with services, gallery, testimonials, and contact information." />
-  <title>MANGALAM Events | Wedding Management</title>
-  <link rel="icon" href="brand.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css">
-  
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- 
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mangalam Wedding Planner</title>
+<link rel="shortcut icon" href="0f101e81-8b9c-4b61-976e-73abd8eb3d13.svg" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="EverAfter Events home">
-        <img src="assets/brand.png" alt="">
-      </a>
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-        aria-label="Open navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<!-- Top Bar -->
+<div class="topbar">✦ Crafting Unforgettable Celebrations Across Bihar &nbsp;·&nbsp; Call Us: +91 70798 81254 ✦</div>
 
-      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#servies">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contacts">Contact</a></li>
-        </ul>
-      </nav>
+<!-- Navigation -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo" onclick="showPage('home')">
+    <img src="0f101e81-8b9c-4b61-976e-73abd8eb3d13.svg"
+         alt="Wedding Planner Icon"
+         width="40"
+         height="40" style="border-radius: 50px;">
+    <div class="nav-logo-text">
+      <div class="name">Mangalam</div>
+      <div class="tagline">Wedding Planner</div>
     </div>
-  </header>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active" data-page="home" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" data-page="about" onclick="showPage('about')">About</a></li>
+    <li><a href="#" data-page="services" onclick="showPage('services')">Services</a></li>
+    <li><a href="#" data-page="gallery" onclick="showPage('gallery')">Gallery</a></li>
+    <li><a href="#" data-page="testimonials" onclick="showPage('testimonials')">Testimonials</a></li>
+    <li><a href="#" class="nav-cta" data-page="contact" onclick="showPage('contact')">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <main id="main-content">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-overlay">
-        <div class="container hero-content">
-          <h1 id="hero-title">Creating Unforgettable <br> Memory Experiences</h1>
-          <p>
-         Crafting luxurious wedding experiences in Bihar with in your Budget.
-          </p>
-          <div class="hero-cta-group">
-            <a class="btn btn-chat" href="https://wa.me/917079881254" target="_blank" rel="noopener noreferrer">Chat on
-              WhatsApp</a>
-            <a class="btn btn-call" href="tel:+917079881254">Call Us</a>
-          </div>
-        </div>
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('banner.png')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">✦ Wedding Planning</div>
+      <h1>Creating Your Dream <em>Wedding</em></h1>
+      <p class="hero-desc">We transform your vision into a breathtaking celebration. Every detail curated, every moment crafted with love and precision.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          Start Planning
+        </a>
+        <a href="#" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;" onclick="showPage('gallery')">
+          View Our Work
+        </a>
       </div>
-    </section>
-    <div class="section-cover ">
-      <section class="section alt-bg" id="about" aria-labelledby="about-title">
-        <div class="container split">
-          <div>
-            <p class="section-label">About Us</p>
-            <h2 id="about-title"></h2>
-            <p>
-              MANGALAM Events is a full-service <span style="color: var(--primary);">Event</span> management company focused
-              on
-              personalized planning, refined styling, and seamless execution.
-              We take care of every detail with precision and passion, allowing your family to celebrate with ease, joy,
-            and complete peace of mind.
-            </p>
-            <p>
-              Our team blends creativity and precision so every moment feels effortless,
-              meaningful, and uniquely yours.
-            </p>
-          </div>
-          <div class="aboutImg" style="background: url(assets/about.jpg); background-position: center;background-size: cover; height: 40vh;"></div>
-        </div>
-      </section>
-
-      <section class="section alt-bg" aria-labelledby="services-title">
-        <div class="container">
-          <p class="section-label">Our Experties</p>
-          <h2 id="services-title">Events We Specialize In</h2>
-
-          <div class="services-grid">
-            <article class="service-card weddingImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Wedding Events</h3>
-                <p>Complete wedding planning and execution with elegant décor, catering, photography, and seamless
-                  coordination for your grand celebration.</p>
-              </div>
-            </article>
-            <article class="service-card desWeddingImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Destination Weddings</h3>
-                <p>Beautifully organized weddings at stunning locations, managed with precision, creativity, and
-                  personalized care.</p>
-              </div>
-            </article>
-            <article class="service-card engagementImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Ring Ceremony & Engagement</h3>
-                <p>Elegant engagement and ring ceremony arrangements that mark the beginning of your forever journey.
-                </p>
-              </div>
-            </article>
-            <article class="service-card haldiImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Haldi Ceremony</h3>
-                <p>Vibrant and joyful haldi setups designed with colorful décor, floral themes, and lively arrangements
-                  for a memorable pre-wedding celebration.</p>
-              </div>
-            </article>
-            <article class="service-card mehdiImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Mehndi Ceremony</h3>
-                <p>Beautifully styled mehndi events with artistic décor, comfortable seating, and a festive atmosphere
-                  filled with music and traditions.</p>
-              </div>
-            </article>
-            <article class="service-card sangeetImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Sangeet Night</h3>
-                <p>Energetic and glamorous sangeet celebrations with stage setups, lighting, entertainment, and seamless
-                  event coordination.</p>
-              </div>
-            </article>
-            <article class="service-card corporateImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Corporate Events</h3>
-                <p>Professional planning and flawless management of conferences, award ceremonies, and corporate
-                  gatherings.</p>
-              </div>
-            </article>
-            <article class="service-card birthdayImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Birthday Celebrations</h3>
-                <p>Creative and fun-filled birthday events crafted to create unforgettable memories.</p>
-              </div>
-            </article>
-            <article class="service-card family-gathering-img">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Get-Together & Family Events</h3>
-                <p>Thoughtfully organized gatherings that bring families and friends together in a warm, stress-free
-                  environment.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section experience-highlight" aria-labelledby="experience-title">
-        <div class="container">
-          <p class="section-label">Our Journey</p>
-          <h2 id="experience-title">Trusted by Families & Brands</h2>
-
-          <div class="experience-grid">
-            <article class="metric-card">
-              <h3 class="metric-value">
-                <span class="metric-counter" data-target="5" data-suffix="+">0</span> Years
-              </h3>
-              <p class="metric-label">of Experience in Event Management</p>
-            </article>
-
-            <article class="metric-card">
-              <h3 class="metric-value">
-                <span class="metric-counter" data-target="50" data-suffix="+">0</span> Clients
-              </h3>
-              <p class="metric-label">Happy Clients Served Successfully</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt-bg" aria-labelledby="services-title" id="servies">
-        <div class="container">
-          <p class="section-label">Our Services</p>
-          <h2 id="services-title">Everything You Need in One Place</h2>
-
-          <div class="services-grid">
-            <article class="service-card consultationImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Consultation & Planning</h3>
-                <p>
-                  Our expert team provides clear planning, vendor coordination, and timeline
-                  management to ensure your special day unfolds flawlessly.
-                </p>
-              </div>
-            </article>
-
-            <article class="service-card decorImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Design & Decor Management</h3>
-                <p>
-                  Crafting elegant, picture-perfect environments with premium designs,
-                  sophisticated details, and seamless execution.
-                </p>
-              </div>
-            </article>
-
-            <article class="service-card cateringImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Catering Services</h3>
-                <p>
-                  We coordinate customized menus, professional service staff, and seamless
-                  food arrangements to ensure every guest enjoys a delightful dining experience.
-                </p>
-              </div>
-            </article>
-
-            <article class="service-card photoImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Photography & Videography</h3>
-                <p>
-                  From candid moments and cinematic coverage to aerial drone views and vibrant
-                  LED wall presentations, we ensure every detail of your celebration is beautifully
-                  captured and displayed.
-                </p>
-              </div>
-            </article>
-
-            <article class="service-card hospitalityImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Guest Hospitality</h3>
-                <p>
-                  From welcoming arrivals to comfortable accommodations, we manage every detail
-                  to provide a smooth and stress-free experience for your loved ones.
-                </p>
-              </div>
-            </article>
-
-            <article class="service-card budgetImg">
-              <div class="overlay"></div>
-              <div class="content">
-                <h3>Budget Planning</h3>
-                <p>
-                  We manage vendor negotiations, expense tracking, and cost planning with complete
-                  transparency, ensuring your dream wedding is both elegant and financially well-organized.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
     </div>
-
-    <section class="section dark-gradient-section" aria-labelledby="services-title">
-      <div class="message-backdrop"><img
-          src="https://media.istockphoto.com/id/866987706/photo/indian-wedding-hands.jpg?s=612x612&w=0&k=20&c=6L-u9qhFPv9MjDnF4UK4AqjVbDKM4_8Xad72IHhwPZE="
-          alt="" loading="lazy"></div>
-      <div class="background">
-        <div class="message-title" style="color: var(--primary);">
-          <h2>We Create Unforgettable
-            Memory Experiences</h2>
-        </div>
-        <div class="message-subtitle">
-          <h4>We believe in creating blissful events for your very special days. Whether it is your
-            birthday, wedding, engagement, or a corporate event, we are here to make it happen. We assure you that every
-            little detail is taken care of. Clients are given customized touch, to make their day even more personal,
-            and
-            full of emotions. We are happy to offer our services to the client. Being constantly in touch with all parts
-            of India helps us to ensure you, of budget-friendly prices. We come in the list of Top wedding planners in
-            India.</h4>
-        </div>
-        <div>
-          <h4>Memorable events don't just happen. They happen to be our business.</h4>
-        </div>
-      </div>
-    </section>
-    <div class="section-cover ">
-      <section class="section  alt-bg" aria-labelledby="services-title"
-        style="background-color:rgb(250, 202, 193); text-shadow:10px 12px 28px var(--primary);">
-        <div class="container">
-          <div class="services-grid">
-            <article class="why-card"
-              style="background-color: transparent;box-shadow: none;text-shadow:10px 12px 28px #7e1c1c;">
-              <h2>Why Choose Us</h2>
-              <p>
-                As one of the leading wedding planners in India, we excel in creating unforgettable wedding experiences.
-                With our deep expertise in event management, we don't just plan weddings—we deliver a comprehensive
-                range of services to clients across the country.
-              </p>
-            </article>
-            <article class="why-card">
-              <h3>Complete Event Management</h3>
-              <p>
-                We handle every detail, from planning to execution, ensuring your event runs smoothly. Our team takes
-                care of setup, logistics, and coordination, allowing you to relax and enjoy a stress-free experience.
-              </p>
-            </article>
-            <article class="why-card">
-              <h3>Personalized & Detail-Oriented Approach</h3>
-              <p>
-                Every event is unique. We carefully understand your vision and bring it to life with precision,
-                creativity, and flawless attention to detail.
-              </p>
-            </article>
-            <article class="why-card">
-              <h3>Budget-Friendly & Transparent Pricing</h3>
-              <p>
-                Worried about going over budget? We've got you covered. With our expertise, we ensure every aspect of
-                your event stays within budget while delivering exceptional quality. We negotiate the best rates and
-                ensure no hidden costs surprise you.</p>
-            </article>
-            <article class="why-card">
-              <h3>Flexible for Last-Minute Changes</h3>
-              <p>
-                Unexpected adjustments? No stress. Our team is experienced in handling last-minute updates smoothly and
-                efficiently. </p>
-            </article>
-            <article class="why-card">
-              <h3>Cost-Efficient Vendor Network</h3>
-              <p>
-                Our strong relationships with trusted vendors help you get premium services at competitive prices,
-                maximizing value without compromising quality.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
+  </section>
 
-    <div class="section-cover ">
-      <section class="section alt-bg" id="gallery" aria-labelledby="gallery-title">
-        <div class="container">
-          <p class="section-label">Gallery</p>
-          <h2 id="gallery-title">Moments We Have Brought to Life</h2>
-
-          <div class="gallery-grid">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNi5-Jq4LId42iZ4bT8AZPJB0co9Iw_nr1VowHb=s1024-v1"
-              alt="Wedding table setup with flowers" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOQXwnrD8nUdMdKlldDG-9IgclH4JObfhpWTSYp=s3072-v1"
-              alt="Bride and groom walking outdoors" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNKcqdUR8r9bau6LL_ZVOcZIliR5LwpdDmBnwkg=s677-k-no"
-              alt="Decorated wedding reception hall" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNn1jVNSVbs7OC6cbzfCXCd5GeBsAHOI_fTk9A8=s1024-v1"
-              alt="Wedding bouquet close-up" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPsxUPwtZRkyJhnj3MTHlTCov_SF6DMqkBk9Rvl=s677-k-no"
-              alt="Couple first dance at reception" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMBLybCuUgi0e5CkwPjMEpNPc_tzaltOlbhKhag=s1024-v1"
-              alt="Wedding ceremony with guests" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOdGYvcb-DIt1VY4Yg2z9aC5Z5945nBjwEQa6LR=s3072-v1"
-              alt="Wedding ceremony with guests" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPfJs8pmeYtifAvP1Zf5-PzKTj0mt3V7DFR_hAk=s1024-v1"
-              alt="Wedding ceremony with guests" loading="lazy" />
-          </div>
-        </div>
-      </section>
+  <!-- Trust Strip -->
+  <div class="trust-strip">
+    <div class="trust-strip-inner">
+      <div class="trust-item"><div class="trust-num">500+</div><div class="trust-label">Weddings Planned</div></div>
+      <div class="trust-item"><div class="trust-num">8+</div><div class="trust-label">Years Experience</div></div>
+      <div class="trust-item"><div class="trust-num">12</div><div class="trust-label">Cities Covered</div></div>
+      <div class="trust-item"><div class="trust-num">98%</div><div class="trust-label">Happy Couples</div></div>
     </div>
-  </main>
+  </div>
 
-  <section class="section surface-section" id="testimonials" aria-labelledby="testimonials-title">
+  <!-- About Preview -->
+  <section class="section">
     <div class="container">
-      <p class="section-label">Testimonials</p>
-      <h2 id="testimonials-title">What Our Clients Say</h2>
-
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-header-inner">
-            <img
-              src="https://lh3.googleusercontent.com/a/ACg8ocJItYH8i8gP915iY_a10_IRahH9ozK0OsQlzJJp0X6E7fCtCA=w36-h36-p-rp-mo-br100"
-              alt="manish kumar" class="testimonial-image" />
-            <div class="testimonial-info">
-              <h3>manish kumar</h3>
-              <div class="star-rating">
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-            </div>
+      <div class="about-split">
+        <div class="about-img-stack">
+          <img class="about-img-main" src="about.jpg" alt="Our Wedding Team" />
+          <img class="about-img-accent" src="menhi.jpg" alt="Mehndi Ceremony" />
+          <div class="about-badge">
+            <div class="about-badge-num">8+</div>
+            <div class="about-badge-text">Years of<br>Excellence</div>
           </div>
-          <p class="testimonial-comment">"It's very authentic and fine decor provide by youngest team.i am very happy
-            with the management that makes my event worth remembering.thanks"</p>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-header-inner">
-            <img
-              src="https://lh3.googleusercontent.com/a/ACg8ocK2C7RZcigZzhtEy3Vg7L-zReQ-A_do8MPdKAtWWVY0fVdiqQ=w72-h72-p-rp-mo-br100"
-              alt="Avinabh Sriwastav" class="testimonial-image" />
-            <div class="testimonial-info">
-              <h3>Avinabh Sriwastav</h3>
-              <div class="star-rating">
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <p class="testimonial-comment">"Best experience with team and spacial thanks to akshay anand made my function
-            memorable"</p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header-inner">
-            <img
-              src="https://lh3.googleusercontent.com/a-/ALV-UjUP5iQcqfs_320wF4mlLUXotrJFQdQoGoUVOBLzTmKKom0X5dzt=w36-h36-p-rp-mo-br100"
-              alt="Deepankar vats" class="testimonial-image" />
-            <div class="testimonial-info">
-              <h3>Deepankar vats</h3>
-              <div class="star-rating">
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <p class="testimonial-comment">"Must contact for memorable moments and event"</p>
+        <div class="about-text">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">We Make Your <em>Love Story</em> Legendary</h2>
+          <p class="section-sub">Founded with a passion for creating magical moments, Mangalam Wedding Planner has grown into one of Bihar's most trusted celebration companies.</p>
+          <br>
+          <p style="font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:16px;">From intimate mehndi ceremonies to grand destination weddings, we pour our hearts into every event. Our team of dedicated planners, decorators, and coordinators work seamlessly to bring your vision to life.</p>
+          <p style="font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;">We don't just plan weddings — we craft memories that last a lifetime. Every flower, every light, every moment is thoughtfully curated for you.</p>
+          <span class="about-signature">Mangalam</span>
+          <br><br>
+          <a href="#" class="btn btn-primary" onclick="showPage('about')">Meet Our Team</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="site-footer" >
-    <section class="cta-section">
-      <div class="cta-overlay"></div>
-
-      <div class="cta-content">
-        <h2>Let Us Make Your Dream Event Comes True</h2>
-
-        <div class="cta-buttons" id="contacts">
-          <a class="btn btn-chat" href="https://wa.me/917079881254" target="_blank" rel="noopener noreferrer">Chat on
-            WhatsApp</a>
-          <a class="btn btn-call" href="tel:+917079881254">Call Us</a>
+  <!-- Services -->
+  <section class="section-sm" style="background:var(--cream);">
+    <div class="container">
+      <div class="services-intro">
+        <div>
+          <div class="section-label">What We Offer</div>
+          <h2 class="section-title">Our <em>Services</em></h2>
         </div>
-
-        <div class="social-icons">
-          <a href="https://www.instagram.com/amankrjha77/" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-instagram"></i></a>
-          <a href="https://www.instagram.com/amankrjha77/" target="_blank"
-            rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:amankrjha77@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="#" class="btn btn-outline" onclick="showPage('services')">All Services</a>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="banner.png" alt="Wedding Planning" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Wedding Planning</h3>
+            <p>Full-service wedding coordination from engagement to reception, tailored to your vision.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="decore.jpg" alt="Décor & Florals" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Décor & Florals</h3>
+            <p>Breathtaking floral installations and décor that transform any venue into a dreamscape.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="destination.webp" alt="Destination Weddings" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg>
+            </div>
+            <h3>Destination Weddings</h3>
+            <p>Curated experiences in Bihar's most magical locations — from Rajasthan palaces to Goa beaches.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="haldi.webp" alt="Pre-Wedding Ceremonies" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3>Pre-Wedding Events</h3>
+            <p>Haldi, Mehndi, Sangeet — we make every pre-wedding ritual a cherished celebration.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="catering.jpg" alt="Catering" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            </div>
+            <h3>Catering</h3>
+            <p>Exquisite culinary experiences with menus crafted to delight every guest.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="birthday.jpg" alt="Other Events" />
+          <div class="service-card-overlay">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Birthdays & Corporate</h3>
+            <p>From milestone birthdays to corporate galas — celebrations of every scale.</p>
+          </div>
         </div>
       </div>
-    </section>
-    <div class="copyright" style="font-size: 12px;;">
-      Copyright © 2026 <a href="http://mangalamweddingevents.in"><span style="color: var(--primary);">Mangalam Events</span></a>. All Rights Reserved.
     </div>
-  </footer>
+  </section>
 
-  <a class="floating-action floating-call" href="tel:+917079881254" aria-label="Call Us" title="Call Us">
-    <i class="fas fa-phone-alt" aria-hidden="true"></i>
-  </a>
-  <a class="floating-action floating-whatsapp" href="https://wa.me/917079881254" target="_blank"
-    rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp" aria-hidden="true"></i>
-  </a>
+  <!-- Why Choose Us -->
+  <section class="section why-bg">
+    <div class="container">
+      <div style="text-align:center;max-width:600px;margin:0 auto 0;">
+        <div class="section-label" style="justify-content:center;">Why Choose Us</div>
+        <h2 class="section-title" style="text-align:center;">Trusted by <em>Hundreds</em><br>of Happy Couples</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>100% Commitment</h3>
+          <p>Your wedding is our priority. We dedicate a dedicated team exclusively to your celebration.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>On-Time Delivery</h3>
+          <p>Every event runs on schedule. We manage every vendor, every timeline with precision.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Budget-Friendly</h3>
+          <p>Luxury experiences at every budget. We maximize value without compromising on elegance.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Expert Team</h3>
+          <p>Seasoned planners, creative decorators, and experienced coordinators at your service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Gallery Preview -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;gap:24px;">
+        <div>
+          <div class="section-label">Our Work</div>
+          <h2 class="section-title">A Glimpse of <em>Magic</em></h2>
+        </div>
+        <a href="#" class="btn btn-outline" onclick="showPage('gallery')">Full Gallery</a>
+      </div>
+      <div class="gallery-mosaic">
+        <div class="gitem gitem-1"><img src="decore.jpg" alt="Wedding" /></div>
+        <div class="gitem gitem-2"><img src="banner.png" alt="Décor" /></div>
+        <div class="gitem gitem-3"><img src="haldi.webp" alt="Haldi" /></div>
+        <div class="gitem gitem-4"><img src="menhi.jpg" alt="Mehndi" /></div>
+        <div class="gitem gitem-5"><img src="destination.webp" alt="Destination" /></div>
+        <div class="gitem gitem-6"><img src="birthday.jpg" alt="Birthday" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials-bg">
+    <div class="container">
+      <div style="text-align:center;max-width:600px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;">Love Notes</div>
+        <h2 class="section-title">What Our <em>Couples</em> Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>Mangalam made our wedding day absolutely flawless. Every detail was perfect, the floral arrangements, the timing, everything exceeded our expectations.</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">P</div>
+            <div><div class="tcard-name">Priya & Rahul Sharma</div><div class="tcard-meta">Madhubani Wedding, 2024</div></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>We had a destination wedding in rajgir and the team handled everything beautifully. Such professionalism and warmth throughout the entire planning process.</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">A</div>
+            <div><div class="tcard-name">Ananya & Vikram Jha</div><div class="tcard-meta">Rajgir Destination, 2024</div></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>From our engagement to the final reception, Mangalam was there every step of the way. They truly understood our vision and brought it to life beyond our dreams.</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">S</div>
+            <div><div class="tcard-name">Sneha & Arjun Gupta</div><div class="tcard-meta">Samastipur Wedding, 2023</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Ready to Plan Your<br>Dream Wedding?</h2>
+      <p>Let's create something extraordinary together. Book a free consultation today.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" class="btn btn-outline" onclick="showPage('contact')">Get Free Consultation</a>
+        <a href="tel:+917079881254" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.3);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.52-1.52a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END HOME -->
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div class="page" id="page-about">
+
+  <div class="page-hero">
+    <img class="page-hero-bg" src="about.jpg" alt="About Us" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home / <span>About Us</span></div>
+      <h1>Our <em style="font-style:italic;color:var(--gold-light)">Story</em></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <img src="menhi.jpg" alt="Mangalam Team" />
+        <div class="about-story-text">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Turning Moments Into <em>Memories</em></h2>
+          <br>
+          <h3>Born from a Love of Celebrations</h3>
+          <p>Mangalam Wedding Planner was founded with a single belief: every couple deserves a wedding that feels uniquely, deeply theirs. What began as a small team of passionate planners has grown into a full-service celebration company trusted by hundreds of families across Bihar.</p>
+          <p>Our founders grew up watching the magic of Bihar weddings, the vibrant colours, the rituals rich with meaning, the joy that fills every corner of the venue. We started this company to preserve that magic while adding our own touch of modern elegance.</p>
+          <h3>Our Philosophy</h3>
+          <p>We believe weddings are not just events — they are the beginning of a lifelong story. We listen carefully, plan meticulously, and execute flawlessly. Every decision we make is guided by one question: <em>"Will this create a memory the couple will cherish forever?"</em></p>
+          <p>From the first consultation to the last dance, we are by your side — a trusted partner, a creative collaborator, and most importantly, a team that genuinely cares.</p>
+          <a href="#" class="btn btn-primary" onclick="showPage('contact')">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-sm" style="background:var(--cream);">
+    <div class="container">
+      <div style="text-align:center;max-width:520px;margin:0 auto 0;">
+        <div class="section-label" style="justify-content:center;">What Guides Us</div>
+        <h2 class="section-title">Our <em>Values</em></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-item"><div class="value-num">01</div><h3>Authenticity</h3><p>Every wedding we plan is as unique as the couple. We never use templates — we create original visions.</p></div>
+        <div class="value-item"><div class="value-num">02</div><h3>Excellence</h3><p>We hold ourselves to the highest standards in every detail, from the biggest décor to the smallest tag.</p></div>
+        <div class="value-item"><div class="value-num">03</div><h3>Warmth</h3><p>We treat every family like our own. Weddings are emotional journeys and we walk them with you.</p></div>
+        <div class="value-item"><div class="value-num">04</div><h3>Innovation</h3><p>We blend timeless traditions with contemporary trends to create weddings that feel fresh and timeless.</p></div>
+        <div class="value-item"><div class="value-num">05</div><h3>Integrity</h3><p>Transparent pricing, honest advice, and complete accountability — always.</p></div>
+        <div class="value-item"><div class="value-num">06</div><h3>Passion</h3><p>We love what we do. That energy shows in every event we create and every couple we serve.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="trust-strip">
+    <div class="trust-strip-inner" style="max-width:1200px;margin:0 auto;">
+      <div class="trust-item"><div class="trust-num">500+</div><div class="trust-label">Weddings Planned</div></div>
+      <div class="trust-item"><div class="trust-num">8+</div><div class="trust-label">Years in Business</div></div>
+      <div class="trust-item"><div class="trust-num">50+</div><div class="trust-label">Vendor Partners</div></div>
+      <div class="trust-item"><div class="trust-num">12</div><div class="trust-label">Cities Covered</div></div>
+    </div>
+  </div>
+
+  <div class="cta-banner" style="margin-top:0;">
+    <div class="cta-banner-content">
+      <h2>Let's Plan Something<br>Beautiful Together</h2>
+      <p>Your dream wedding is just one conversation away.</p>
+      <a href="#" class="btn btn-outline" onclick="showPage('contact')">Contact Us Today</a>
+    </div>
+  </div>
+
+</div>
+<!-- END ABOUT -->
+
+<!-- ═══════════════ SERVICES PAGE ═══════════════ -->
+<div class="page" id="page-services">
+
+  <div class="page-hero">
+    <img class="page-hero-bg" src="decore.jpg" alt="Services" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home / <span>Services</span></div>
+      <h1>What We <em style="font-style:italic;color:var(--gold-light)">Offer</em></h1>
+    </div>
+  </div>
+
+  <section class="section-sm" style="background:var(--cream);text-align:center;">
+    <div class="container" style="max-width:680px;">
+      <div class="section-label" style="justify-content:center;">Full-Service Planning</div>
+      <h2 class="section-title">Every Celebration, <em>Perfected</em></h2>
+      <p class="section-sub" style="margin:0 auto;">From intimate ceremonies to grand multi-day extravaganzas, we offer end-to-end services tailored to your needs and budget.</p>
+    </div>
+  </section>
+
+  <div class="services-list">
+    <div class="service-row">
+      <div class="service-row-img"><img src="banner.png" alt="Wedding Planning" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">01 — Signature Service</div>
+        <h3>Complete Wedding Planning</h3>
+        <p>Our flagship service covers every aspect of your wedding — from venue selection and vendor management to day-of coordination. You focus on enjoying your day; we handle everything else.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Venue Search</span>
+          <span class="service-feature-tag">Vendor Coordination</span>
+          <span class="service-feature-tag">Budget Management</span>
+          <span class="service-feature-tag">Timeline Planning</span>
+          <span class="service-feature-tag">Day-of Coordination</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-row-img"><img src="decore.jpg" alt="Decoration" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">02 — Décor</div>
+        <h3>Floral & Event Decoration</h3>
+        <p>From lush floral mandaps to dramatic stage backdrops, our in-house décor team crafts immersive environments that reflect your personality and style.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Floral Installations</span>
+          <span class="service-feature-tag">Stage Design</span>
+          <span class="service-feature-tag">Lighting</span>
+          <span class="service-feature-tag">Entrance Décor</span>
+          <span class="service-feature-tag">Table Settings</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-row-img"><img src="destination.webp" alt="Destination Weddings" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">03 — Destination</div>
+        <h3>Destination Weddings</h3>
+        <p>Exchange vows in a palace in Udaipur, on the beaches of Goa, or in the hills of Himachal. We manage all travel, accommodation, and logistics for your guests and family.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Location Scouting</span>
+          <span class="service-feature-tag">Guest Travel & Stay</span>
+          <span class="service-feature-tag">Local Vendor Network</span>
+          <span class="service-feature-tag">Permits & Legalities</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-row-img"><img src="haldi.webp" alt="Pre-Wedding" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">04 — Pre-Wedding</div>
+        <h3>Haldi, Mehndi & Sangeet</h3>
+        <p>Every pre-wedding ceremony is a cherished ritual. We design each event with its own theme, décor, and energy — making every function as memorable as the wedding itself.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Thematic Décor</span>
+          <span class="service-feature-tag">Entertainment</span>
+          <span class="service-feature-tag">Photography Setup</span>
+          <span class="service-feature-tag">Customised Invitations</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-row-img"><img src="catering.jpg" alt="Catering" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">05 — Catering</div>
+        <h3>Food & Catering</h3>
+        <p>Delight your guests with exquisite multi-cuisine spreads, live food counters, and personalised dessert stations. Our culinary partners bring restaurant-quality dining to your event.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Multi-Cuisine Menus</span>
+          <span class="service-feature-tag">Live Counters</span>
+          <span class="service-feature-tag">Welcome Drinks</span>
+          <span class="service-feature-tag">Custom Cakes</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-row-img"><img src="corporate.png" alt="Corporate Events" /></div>
+      <div class="service-row-text">
+        <div class="service-row-tag">06 — Beyond Weddings</div>
+        <h3>Corporate & Birthday Events</h3>
+        <p>Our expertise extends to corporate galas, milestone birthdays, and social events. Every celebration receives the same premium attention to detail.</p>
+        <div class="service-features">
+          <span class="service-feature-tag">Corporate Events</span>
+          <span class="service-feature-tag">Birthday Parties</span>
+          <span class="service-feature-tag">Anniversary Celebrations</span>
+          <span class="service-feature-tag">Baby Showers</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div style="text-align:center;max-width:540px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;">Investment</div>
+        <h2 class="section-title">Simple, <em>Transparent</em> Pricing</h2>
+        <p class="section-sub" style="margin:0 auto;">Choose the package that fits your needs. All packages include dedicated support and our signature attention to detail.</p>
+      </div>
+      <div class="pricing-grid" style="max-width:1000px;margin:64px auto 0;">
+        <div class="pricing-card">
+          <div class="pricing-plan">Essential</div>
+          <div class="pricing-price">₹1.5L</div>
+          <div class="pricing-price-note">Starting from</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>Day-of Coordination</li>
+            <li>Vendor Recommendations</li>
+            <li>Basic Décor Setup</li>
+            <li>Timeline Planning</li>
+            <li>1 Dedicated Planner</li>
+            <li>Email & Phone Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;" onclick="showPage('contact')">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-plan">Premium</div>
+          <div class="pricing-price">₹3.5L</div>
+          <div class="pricing-price-note">Starting from</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>Full Wedding Management</li>
+            <li>Custom Décor Design</li>
+            <li>Vendor Negotiation</li>
+            <li>Pre-Wedding Events (2)</li>
+            <li>Budget Management</li>
+            <li>2 Dedicated Planners</li>
+            <li>24/7 Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;" onclick="showPage('contact')">Get Started</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-plan">Luxury</div>
+          <div class="pricing-price">₹8L+</div>
+          <div class="pricing-price-note">Customised Quote</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>Complete Luxury Experience</li>
+            <li>Destination Wedding Option</li>
+            <li>Full Décor Production</li>
+            <li>All Pre-Wedding Events</li>
+            <li>Celebrity Entertainment</li>
+            <li>Dedicated Team of 4</li>
+            <li>White-Glove Service</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;" onclick="showPage('contact')">Get Custom Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Not Sure Which Package?<br>Let's Talk.</h2>
+      <p>Every wedding is unique. Get a free consultation and customised quote.</p>
+      <a href="#" class="btn btn-outline" onclick="showPage('contact')">Free Consultation</a>
+    </div>
+  </div>
+
+</div>
+<!-- END SERVICES -->
+
+<!-- ═══════════════ GALLERY PAGE ═══════════════ -->
+<div class="page" id="page-gallery">
+
+  <div class="page-hero">
+    <img class="page-hero-bg" src="destination.webp" alt="Gallery" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home / <span>Gallery</span></div>
+      <h1>Our <em style="font-style:italic;color:var(--gold-light)">Portfolio</em></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;">Visual Stories</div>
+        <h2 class="section-title">Celebrations We've <em>Crafted</em></h2>
+        <p class="section-sub" style="margin:0 auto;">Every image tells a story of joy, love, and meticulous planning. Browse our portfolio of weddings and events.</p>
+      </div>
+      <div class="gallery-filters">
+        <button class="filter-btn active" onclick="filterGallery(this,'all')">All</button>
+        <button class="filter-btn" onclick="filterGallery(this,'wedding')">Weddings</button>
+        <button class="filter-btn" onclick="filterGallery(this,'ceremony')">Ceremonies</button>
+        <button class="filter-btn" onclick="filterGallery(this,'decor')">Décor</button>
+        <button class="filter-btn" onclick="filterGallery(this,'events')">Events</button>
+      </div>
+      <div class="gallery-full-grid" id="galleryGrid">
+        <div class="gi" data-cat="wedding"><img src="banner.png" alt="Wedding" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="decor"><img src="decore.jpg" alt="Décor" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="ceremony"><img src="haldi.webp" alt="Haldi" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="ceremony"><img src="menhi.jpg" alt="Mehndi" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="wedding"><img src="destination.webp" alt="Destination" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="events"><img src="birthday.jpg" alt="Birthday" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="decor"><img src="catering.jpg" alt="Catering" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="events"><img src="corporate.png" alt="Corporate" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+        <div class="gi" data-cat="decor"><img src="banner.png" alt="Decoration" /><div class="gi-overlay"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- END GALLERY -->
+
+<!-- ═══════════════ TESTIMONIALS PAGE ═══════════════ -->
+<div class="page" id="page-testimonials">
+
+  <div class="page-hero" style="background:var(--charcoal);">
+    <img class="page-hero-bg" src="banner.png" alt="Testimonials" style="opacity:0.3;" />
+    <div class="page-hero-overlay" style="background:linear-gradient(to top, rgba(44,35,32,0.95) 0%, rgba(44,35,32,0.6) 100%);"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home / <span>Testimonials</span></div>
+      <h1 style="color:#fff;">Love <em style="font-style:italic;color:var(--gold-light)">Notes</em></h1>
+    </div>
+  </div>
+
+  <section class="section testimonials-bg">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto 64px;">
+        <div class="section-label" style="justify-content:center;color:var(--gold);">
+          <span style="display:block;width:32px;height:1px;background:var(--gold);"></span>
+          What Couples Say
+        </div>
+        <h2 class="section-title" style="color:#fff;">Hundreds of <em>Happy</em> Celebrations</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="testimonials-grid">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>Mangalam transformed our wedding into a fairy tale. Every single detail was perfect — the floral mandap, the lighting, the timing. We couldn't have asked for more.</p>
+          <div class="tcard-author"><div class="tcard-avatar">P</div><div><div class="tcard-name">Priya & Rahul Sharma</div><div class="tcard-meta">Madhubani, February 2024</div></div></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>We had a destination wedding in Rajgir and honestly, the logistics seemed impossible. Mangalam made it look effortless. Our guests are still talking about it!</p>
+          <div class="tcard-author"><div class="tcard-avatar">A</div><div><div class="tcard-name">Ananya & Vikram Jha</div><div class="tcard-meta">Rajgir, December 2023</div></div></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>The sangeet they planned for us was absolutely stunning. The décor, the entertainment, the food — everything was beyond perfect. Highly recommend them!</p>
+          <div class="tcard-author"><div class="tcard-avatar">S</div><div><div class="tcard-name">Sneha & Arjun Gupta</div><div class="tcard-meta">Samastipur, November 2023</div></div></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>They understood our budget and still delivered a wedding that felt incredibly luxurious. The team was responsive, professional, and genuinely cared about our happiness.</p>
+          <div class="tcard-author"><div class="tcard-avatar">R</div><div><div class="tcard-name">Ritu & Sanjay Mishra</div><div class="tcard-meta">Darbhanga, October 2023</div></div></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>Our mehndi and haldi ceremonies were the most beautiful events of the entire wedding weekend. The yellow florals for the haldi were breathtaking. Worth every rupee!</p>
+          <div class="tcard-author"><div class="tcard-avatar">M</div><div><div class="tcard-name">Meera & Karan Singh</div><div class="tcard-meta">Darbhanga, March 2024</div></div></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"</div>
+          <p>I was a very particular bride and the Mangalam team handled all my requests with patience and grace. They were truly a pleasure to work with from start to finish.</p>
+          <div class="tcard-author"><div class="tcard-avatar">N</div><div><div class="tcard-name">Naina & Dev Thakur</div><div class="tcard-meta">Muzaffarpur, January 2024</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Rating Badge -->
+  <section class="section-sm" style="background:var(--cream);text-align:center;">
+    <div class="container">
+      <div style="display:inline-flex;flex-direction:column;align-items:center;background:#fff;padding:40px 56px;border:1px solid var(--border);">
+        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Average Rating</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1;color:var(--charcoal);">4.9</div>
+        <div style="font-size:24px;color:var(--gold);letter-spacing:4px;margin:8px 0;">★★★★★</div>
+        <div style="font-size:13px;color:var(--text-muted);font-weight:300;">Based on 200+ verified reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Be Our Next<br>Success Story</h2>
+      <p>Join hundreds of happy couples who trusted us with their most important day.</p>
+      <a href="#" class="btn btn-outline" onclick="showPage('contact')">Plan Your Wedding</a>
+    </div>
+  </div>
+
+</div>
+<!-- END TESTIMONIALS -->
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="page-hero">
+    <img class="page-hero-bg" src="banner.png" alt="Contact" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home / <span>Contact</span></div>
+      <h1>Let's <em style="font-style:italic;color:var(--gold-light)">Connect</em></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-label">Get In Touch</div>
+          <h3>We'd Love to<br>Hear From You</h3>
+          <p>Ready to start planning? Have a question? We're here to help. Reach out and a member of our team will respond within 24 hours.</p>
+          <ul class="contact-details">
+            <li>
+              <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.52-1.52a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="contact-detail-text"><strong>Phone</strong><span>+91 70798 81254</span></div>
+            </li>
+            <li>
+              <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="contact-detail-text"><strong>Email</strong><span>amankrjha77@gmail.com</span></div>
+            </li>
+            <li>
+              <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="contact-detail-text"><strong>Location</strong><span>Samastipur, Bihar (Pan-Bihar Services)</span></div>
+            </li>
+            <li>
+              <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="contact-detail-text"><strong>Office Hours</strong><span>Mon–Sat: 10 AM – 7 PM</span></div>
+            </li>
+          </ul>
+          <div class="contact-social">
+            <a class="social-link" href="https://www.instagram.com/amankrjha77/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/amankrjha77/" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a class="social-link" href="https://wa.me/917079881254" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@AmanzedAman" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" name="user_name" placeholder="Bride / Groom Name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="user_phone" placeholder="+91 XXXXX XXXXX" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="user_email" placeholder="your@email.com" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Event Type *</label>
+                <select name="user_event_type" required>
+                  <option value="">Select Service</option>
+                  <option>Full Wedding Planning</option>
+                  <option>Décor & Floral</option>
+                  <option>Destination Wedding</option>
+                  <option>Pre-Wedding Events</option>
+                  <option>Catering</option>
+                  <option>Corporate Event</option>
+                  <option>Birthday Party</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Expected Date</label>
+                <input name="user_date" type="date" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Approximate Budget</label>
+              <select name="user_budget">
+                <option value="">Select Range</option>
+                <option>Under ₹1 Lakh</option>
+                <option>₹1L – ₹3L</option>
+                <option>₹3L – ₹7L</option>
+                <option>₹7L – ₹15L</option>
+                <option>₹15L+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell Us About Your Dream Wedding</label>
+              <textarea name="user_message" placeholder="Share your vision, venue ideas, guest count, or any special requests..."></textarea>
+            </div>
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
+            </div>
+            <div class="form-success" id="formSuccess">
+              ✓ Thank you! We've received your message and will contact you within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- END CONTACT -->
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="foot-logo">
+        <div class="foot-logo-circle">
+          <img src="0f101e81-8b9c-4b61-976e-73abd8eb3d13.svg" width="40px" height="40px" alt="" style="border-radius: 50px;">
+        </div>
+        <span class="foot-logo-name">Mangalam</span>
+      </div>
+      <p>Crafting extraordinary weddings and celebrations with passion, precision, and love. Serving couples across Bihar since 2016.</p>
+      <div style="margin-top:20px;display:flex;gap:8px;">
+        <a href="https://www.instagram.com/amankrjha77/" class="social-link" style="background:rgba(255,255,255,0.2);"><svg viewBox="0 0 24 24" stroke="rgba(255,255,255,0.5)" fill="none" stroke-width="1.8" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.instagram.com/amankrjha77/" class="social-link" style="background:rgba(255,255,255,0.2);"><svg viewBox="0 0 24 24" stroke="rgba(255,255,255,0.5)" fill="none" stroke-width="1.8" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://wa.me/917079881254" class="social-link" style="background:rgba(255,255,255,0.2);"><svg viewBox="0 0 24 24" stroke="rgba(255,255,255,0.5)" fill="none" stroke-width="1.8" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About Us</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('gallery')">Gallery</a></li>
+        <li><a onclick="showPage('testimonials')">Testimonials</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a>Wedding Planning</a></li>
+        <li><a>Décor & Florals</a></li>
+        <li><a>Destination Weddings</a></li>
+        <li><a>Pre-Wedding Events</a></li>
+        <li><a>Catering</a></li>
+        <li><a>Corporate Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+917079881254">+91 70798 81254</a></li>
+        <li><a href="mailto:amankrjha77@gmail.com">amankrjha77@gmail.com</a></li>
+        <li><a>Samastipur, Bihar</a></li>
+        <li><a>Mon–Sat: 10 AM – 7 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mangalam Wedding Planner. All rights reserved.</span>
+    <div class="footer-bottom-right">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-btns">
+  <a href="tel:+917079881254" class="float-btn float-call" title="Call Us">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.52-1.52a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" fill="#fff"/></svg>
+  </a>
+  <a href="https://wa.me/917079881254" class="float-btn float-wa" title="WhatsApp" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" fill="#fff"/></svg>
+  </a>
+</div>
+
+<!-- EmailJS SDK (loaded before script.js so emailjs is available) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<!-- Main JavaScript -->
 <script src="script.js"></script>
- 
+
 </body>
-
 </html>
-
